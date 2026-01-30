@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ♡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2d2d2d;
+            background: linear-gradient(135deg, #ffe5f0 0%, #ffd4e5 100%);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: #e91e63;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #d81b60;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .message-card {
+            background: white;
+            padding: 2.5rem;
+            margin: 3rem auto;
+            max-width: 700px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(233, 30, 99, 0.2);
+            position: relative;
+        }
+
+        .message-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #ffb3d9;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .message-card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            font-style: italic;
+        }
+
+        .photo-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.25);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .floating-message {
+            background: linear-gradient(135deg, #ff80ab 0%, #ff4081 100%);
+            padding: 2rem 2.5rem;
+            margin: 4rem auto;
+            max-width: 650px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.3);
+        }
+
+        .floating-message p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .banner-message {
+            background: linear-gradient(135deg, #f48fb1 0%, #ec407a 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 5rem 0;
+        }
+
+        .banner-message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .banner-message p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .double-photo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .double-photo img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            color: #e91e63;
+            margin: 4rem 0 2rem;
+        }
+
+        .final-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #ffc1e3 0%, #ff80ab 100%);
+        }
+
+        .final-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #c2185b;
+            margin-bottom: 2rem;
+        }
+
+        .final-section p {
+            font-size: 1.3rem;
+            color: #880e4f;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .double-photo {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hey, Super Seeylah ♡</h1>
+            <p>I made something special just for you. Scroll down and take your time with it.</p>
+        </div>
+    </section>
+
+    <!-- First Message -->
+    <div class="message-card">
+        <p>You know that feeling when you see someone just living their life and handling everything in front of them and you think damn that’s impressive? That’s how I've felt watching you grow up till this age. The way you keep going and do your thing so effortlessly honestly makes me so proud of you. I admire you more than I say and I’m always in your corner.Pretty sure you know that, just a short reminder.</p>
+    </div>
+
+    <!-- First Photo Grid -->
+    <section class="photo-section">
+        <div class="photo-grid">
+            <div class="photo-item">
+                <img src="photo1.jpg" alt="Replace with your photo">
+            </div>
+            <div class="photo-item">
+                <img src="photo2.jpg" alt="Replace with your photo">
+            </div>
+            <div class="photo-item">
+                <img src="photo3.jpg" alt="Replace with your photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Message -->
+    <div class="floating-message">
+        <p>Remember when we were kids and thought grown-up life would be easier? Turns out we were both terrible predictors of the future. Although we are getting there. In 1, 2, or 3 years?</p>
+    </div>
+
+    <!-- Double Photo Section -->
+    <div class="double-photo">
+        <img src="photo4.jpg" alt="Replace with your photo">
+        <img src="photo5.jpg" alt="Replace with your photo">
+    </div>
+
+    <!-- Second Message -->
+    <div class="message-card">
+        <p>The thing about you is you don’t quit. Even when everything gets messy or hard or just plain ridiculous, you still show up. Not everyone has that in them and I really admire you for it. Is it how you show up for me everytime I need you? You've never said NO to anythig I ask from you, no matter how silly it is. I can't thank nor appreciate you enough, my best after sister. You're the sister, daughter, friend and aunt everyone should wish for.</p>
+    </div>
+
+    <!-- Banner Message -->
+    <section class="banner-message">
+        <h2>Here's What I Know For Sure</h2>
+        <p>You are stronger than you realise even on the days you feel worn down. You’re funnier than you ever give yourself credit for and you light up rooms without trying. And you’re so much more capable than those quiet moments of doubt let you believe. I know I might be biased but my heart knows I’m right.</p>
+    </section>
+
+    <!-- More Photos -->
+    <section class="photo-section">
+        <div class="photo-grid">
+            <div class="photo-item">
+                <img src="photo6.jpg" alt="Replace with your photo">
+            </div>
+            <div class="photo-item">
+                <img src="photo7.jpg" alt="Replace with your photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Message -->
+    <div class="floating-message">
+        <p>I'm really glad you exist. Like, genuinely. The world's a better place with you in it. Even though you're a thief and a beggie beggie sha. Please I'm on my knees, stop STEALING my clothes just because we wear the same size. I know you'll say I don't wear them and they look better on you, but even though, even though! And also, stop BEGGING for everything I streak you.</p>
+    </div>
+
+    <!-- Final Photos -->
+    <div class="double-photo">
+        <img src="photo8.jpg" alt="Replace with your photo">
+        <img src="photo9.jpg" alt="Replace with your photo">
+    </div>
+
+    <!-- Message Card -->
+    <div class="message-card">
+        <p>You have this sneaky little way of making people feel seen and heard without even trying. It’s one of those rare things that actually matters and you just casually walk around doing it like it’s no big deal.</p>
+    </div>
+
+    <!-- Single Featured Photo -->
+    <section class="photo-section">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="photo-item">
+                <img src="photo10.jpg" alt="Replace with your photo" style="height: 500px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Message Section -->
+    <section class="final-section">
+        <h2>So Yeah...</h2>
+        <p>Just wanted to remind you that you're doing great, even on the days when it doesn't feel like it. Keep being you. The world needs more of that. And omooooo, please learn how to wash plates on time when I come back home and maybe I can reward you with a vacation to Maldives, Santorini, Fiji, Ibiza or any location of your choice for being a good girl.</p>
+    </section>
+
+</body>
+</html>
