@@ -211,7 +211,7 @@
 
     <!-- First Message -->
     <div class="message-card">
-        <p>You know that feeling when you see someone just living their life and handling everything in front of them and you think damn that’s impressive? That’s how I've felt watching you grow up till this age. The way you keep going and do your thing so effortlessly honestly makes me so proud of you. I admire you more than I say and I’m always in your corner.Pretty sure you know that, just a short reminder.</p>
+        <p>You know that feeling when you see someone just living their life and handling everything in front of them and you think damn that’s impressive? That’s how I've felt watching you grow up till this age. The way you keep going and do your thing so effortlessly honestly makes me so proud of you. I admire you more than I say and I’m always in your corner. Pretty sure you know that, just a short reminder. Happy birthday, best after sister!</p>
     </div>
 
     <!-- First Photo Grid -->
@@ -276,7 +276,7 @@
 
     <!-- Message Card -->
     <div class="message-card">
-        <p>You have this sneaky little way of making people feel seen and heard without even trying. It’s one of those rare things that actually matters and you just casually walk around doing it like it’s no big deal.</p>
+        <p>I wish you ease on the days that feel heavy and laughter that sneaks up on you when you least expect it. I wish you moments that remind you how loved you are and wins that feel deeply yours. I wish you confidence that stays even when doubt tries to be loud and a life that keeps meeting you with good surprises. And mostly, I wish you never forget how special you are to me always💛.</p>
     </div>
 
     <!-- Single Featured Photo -->
@@ -290,9 +290,39 @@
 
     <!-- Final Message Section -->
     <section class="final-section">
-        <h2>So Yeah...</h2>
+        <h2>So yeah...</h2>
         <p>Just wanted to remind you that you're doing great, even on the days when it doesn't feel like it. Keep being you. The world needs more of that. And omooooo, please learn how to wash plates on time when I come back home and maybe I can reward you with a vacation to Maldives, Santorini, Fiji, Ibiza or any location of your choice for being a good girl.</p>
     </section>
 
-</body>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    // Confetti when page loads
+    window.addEventListener('load', function() {
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ff80ab', '#f48fb1', '#ec407a', '#e91e63', '#ffc1e3']
+        });
+        
+        // Second burst after a short delay
+        setTimeout(function() {
+            confetti({
+                particleCount: 100,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 }
+            });
+        }, 200);
+        
+        setTimeout(function() {
+            confetti({
+                particleCount: 100,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 }
+            });
+        }, 400);
+    });
+</script></body>
 </html>
